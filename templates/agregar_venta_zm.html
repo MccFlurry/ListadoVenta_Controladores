@@ -1,0 +1,41 @@
+{% extends "maestra.html" %}
+{% block titulo %}
+Agregar Venta
+{% endblock %}
+{% block contenido %}
+<section class="section">
+    <div class="columns">
+        <div class="column is-one-third">
+            <h3 class="is-size-3">Agregar Venta</h3>
+            <form action="{{url_for('razm_guardar_venta')}}" method="post">
+                <label for="cliente">Cliente:</label>
+                <input required type="text" class="input" placeholder="Cliente" name="cliente" id="cliente">
+                
+                <label for="responsable_venta">Responsable de la Venta:</label>
+                <input required type="text" class="input" placeholder="Responsable" name="responsable_venta" id="responsable_venta">
+                
+                <label for="descripcion">Descripción:</label>
+                <textarea class="textarea" placeholder="Descripción" name="descripcion" id="descripcion"></textarea>
+                
+                <label for="cantidad">Cantidad:</label>
+                <input required type="number" class="input" placeholder="Cantidad" name="cantidad" id="cantidad">
+                
+                <label for="precio">Precio:</label>
+                <input required type="text" class="input" placeholder="Precio" name="precio" id="precio">
+                
+                <label for="descuento">Descuento:</label>
+                <input required type="text" class="input" placeholder="Descuento" name="descuento" id="descuento">
+                
+                <label for="enlace_informacion">Enlace de Información:</label>
+                <input required type="text" class="input" placeholder="Enlace de Información" name="enlace_informacion" id="enlace_informacion">
+                
+                <label for="enlace_imagen">Enlace de Imagen:</label>
+                <input required type="text" class="input" placeholder="Enlace de Imagen" name="enlace_imagen" id="enlace_imagen">
+                
+                <button type="submit" class="button is-success mt-2">Guardar</button>
+                <a href="{{url_for('razm_ventas')}}" class="button is-primary mt-2">Volver</a>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

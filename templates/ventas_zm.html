@@ -1,0 +1,58 @@
+{% extends "maestra.html" %}
+{% block titulo %} Ventas {% endblock %}
+{% block contenido %}
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">Ventas</h3>
+            <img src="{{ url_for('static', filename='ventas.png') }}" alt="Ventas" style="width: 150px; margin-bottom: 15px;"> 
+            <br>
+            <a href="{{url_for('razm_formulario_agregar_venta')}}" class="button is-success">Agregar</a>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Responsable</th>
+                        <th>Descripción</th>
+                        <th>Cantidad</th>
+                        <th>Precio</th>
+                        <th>Descuento</th>
+                        <th>Deducción</th>
+                        <th>18%</th>
+                        <th>Enlace de Información</th>
+                        <th>Enlace de Imagen</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venta in ventas %}
+                    <tr>
+                        <td>{{ venta[1] }}</td>
+                        <td>{{ venta[2] }}</td>
+                        <td>{{ venta[3] }}</td>
+                        <td>{{ venta[4] }}</td>
+                        <td>{{ venta[5] }}</td>
+                        <td>{{ venta[6] }}</td>
+                        <td>{{ venta[9] }}</td>
+                        <td>{{ venta[10] }}</td>
+                        <td>{{ venta[7] }}</td>
+                        <td>{{ venta[8] }}</td>
+                        <td>
+                            <a href="{{url_for('razm_editar_venta', id=venta[0])}}" class="button is-info">Editar</a>
+                        </td>
+                        <td>
+                            <form action="{{url_for('razm_eliminar_venta')}}" method="POST">
+                                <input type="hidden" name="id" value="{{ venta[0] }}">
+                                <button class="button is-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <label>Desarrollado por: Roger Alessandro Zavaleta Marcelo</label>
+        </div>
+    </div>
+</section>
+{% endblock %}
